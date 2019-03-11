@@ -29,10 +29,7 @@ public class Zombie : MonoBehaviour {
         if(health <= 0)
         {
             onDeath();
-        }
-        if (Input.GetKeyDown("1"))
-        {
-            onDeath();
+            return;
         }
         
         float dist = (transform.position - player.transform.position).magnitude;
@@ -54,7 +51,7 @@ public class Zombie : MonoBehaviour {
         if(other.gameObject.tag == "Weapon")
         {
             Weapon weapon = other.GetComponent<Weapon>();
-            int damage = (int)(weapon.velocity.magnitude * 1000);
+            int damage = weapon.getHitDamage();
             health -= damage;
             
             Debug.Log( damage);
@@ -68,5 +65,10 @@ public class Zombie : MonoBehaviour {
         anim.SetTrigger("isDead");
         Destroy(gameObject, 3);
         isDead = true;
+    }
+
+    public void receiveDamage(int damage)
+    {
+        health -= damage;
     }
 }
