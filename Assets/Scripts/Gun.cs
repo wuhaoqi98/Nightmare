@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : Weapon {
 
@@ -10,6 +11,7 @@ public class Gun : Weapon {
     public bool fullAuto;
 
     GameObject hitPoint;
+    Text text;
     private Light gunFlash;
     private float fireTimer = 0;
 
@@ -18,6 +20,8 @@ public class Gun : Weapon {
         gunFlash = fireTransform.GetComponent<Light>();
         gunFlash.enabled = false;
         hitPoint = GameObject.Find("Hit");
+        text = GetComponentInChildren<Text>();
+        text.text = ammo.ToString();
         base.Start();
     }
 
@@ -43,6 +47,7 @@ public class Gun : Weapon {
             audioSource.Play();
             fireTimer = 0;
             ammo--;
+            text.text = ammo.ToString();
 
             RaycastHit hit2;
             if (Physics.Raycast(fireTransform.position, fireTransform.forward, out hit2))

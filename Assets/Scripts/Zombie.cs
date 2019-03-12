@@ -7,10 +7,14 @@ public class Zombie : MonoBehaviour {
 
     public int health = 100;
     public float activeRange = 10;
+    public float attackRange = 1;
+    public float timeBetweenAttacks = 0.5f;
+    public int attackDamage = 20;
 
     GameObject player;
     NavMeshAgent nav;
     Animator anim;
+    private float attackTimer = 0;
 
     private bool isDead = false;
 
@@ -37,12 +41,17 @@ public class Zombie : MonoBehaviour {
         {
             nav.isStopped = false;
             nav.SetDestination(player.transform.position);
+            if(dist <= attackRange && attackTimer >= timeBetweenAttacks)
+            {
+                player.GetComponent<Player>().receiveDamage(attackDamage);
+                attackTimer = 0;
+            }
         }
         else
         {
             nav.isStopped = true;
         }
-        
+        attackTimer += Time.deltaTime;
         
 	}
 
@@ -56,6 +65,7 @@ public class Zombie : MonoBehaviour {
             
             Debug.Log( damage);
         }
+        
     }
 
     private void onDeath()

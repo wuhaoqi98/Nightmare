@@ -444,6 +444,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   activeRange: 30
+  attackRange: 2
+  timeBetweenAttacks: 1
+  attackDamage: 20
 --- !u!135 &135334215083631930
 SphereCollider:
   m_ObjectHideFlags: 1
