@@ -22,15 +22,15 @@ GameObject:
   - component: {fileID: 33639905485517084}
   - component: {fileID: 23695142590424612}
   - component: {fileID: 54419989878193400}
-  - component: {fileID: 114377435740691298}
   - component: {fileID: 64929219101821100}
+  - component: {fileID: 114012754392551570}
   m_Layer: 0
   m_Name: Katana
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4391183892692846
 Transform:
   m_ObjectHideFlags: 1
@@ -115,7 +115,7 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 6892f4cd05afb66438fece35a6496281, type: 3}
---- !u!114 &114377435740691298
+--- !u!114 &114012754392551570
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1828677403640016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 560d516cd849aea41a972574d7614c69, type: 3}
+  m_Script: {fileID: 11500000, guid: 913bead1edc47f745b9bace3e1c39d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0, z: 0}
+  damage: 1500

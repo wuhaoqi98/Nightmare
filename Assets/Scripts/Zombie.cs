@@ -48,10 +48,10 @@ public class Zombie : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Weapon")
+        if(other.GetComponent<Katana>())
         {
-            Weapon weapon = other.GetComponent<Weapon>();
-            int damage = weapon.getHitDamage();
+            Katana katana = other.GetComponent<Katana>();
+            int damage = katana.getHitDamage();
             health -= damage;
             
             Debug.Log( damage);
