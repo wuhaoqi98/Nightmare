@@ -35,6 +35,8 @@ public class Zombie : MonoBehaviour {
             onDeath();
             return;
         }
+        if (GameManager.mode == 3)
+            return;
         
         float dist = (transform.position - player.transform.position).magnitude;
         if(dist <= activeRange)

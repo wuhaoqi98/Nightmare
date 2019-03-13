@@ -11,10 +11,13 @@ public class Player : MonoBehaviour {
     public float speed = 0.1f;
     public int health = 100;
 
+    CharacterController controller;
+
     // Use this for initialization
     void Start () {
         healthBar.maxValue = health;
         healthBar.value = health;
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -22,7 +25,8 @@ public class Player : MonoBehaviour {
     {
         if (OVRInput.Get(OVRInput.RawButton.LHandTrigger))
         {
-            transform.position += lHand.transform.forward * speed;
+            //transform.position += lHand.transform.forward * speed;
+            controller.Move(lHand.transform.forward * speed);
         }
     }
 
