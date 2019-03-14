@@ -19,4 +19,11 @@ public class Weapon : MonoBehaviour {
     void Update() {
 
     }
+
+    public void SetBloodEffect(Vector3 pos)
+    {
+        blood.transform.position = pos;
+        blood.transform.LookAt(transform.position);
+        blood.Play();
+    }
 }

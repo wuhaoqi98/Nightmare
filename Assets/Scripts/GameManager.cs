@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        mode = 3;
+        //mode = 3;
     }
 
     // Update is called once per frame

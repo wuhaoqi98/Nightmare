@@ -587,6 +587,7 @@ MonoBehaviour:
   fireTransform: {fileID: 4434889933952642}
   timeBetweenFires: 0.2
   ammo: 15
+  fullAuto: 0
 --- !u!120 &120701506602548870
 LineRenderer:
   m_ObjectHideFlags: 1

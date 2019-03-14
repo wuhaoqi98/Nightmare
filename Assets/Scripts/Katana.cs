@@ -23,6 +23,10 @@ public class Katana : Weapon {
         newPos = transform.position;
         velocity = newPos - lastPos;
         lastPos = newPos;
+        if(velocity.magnitude*damage >= 50)
+        {
+            audioSource.Play();
+        }
     }
 
     public int getHitDamage()

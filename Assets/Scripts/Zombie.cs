@@ -64,7 +64,6 @@ public class Zombie : MonoBehaviour {
             Katana katana = other.GetComponent<Katana>();
             int damage = katana.getHitDamage();
             health -= damage;
-            
             Debug.Log( damage);
         }
         

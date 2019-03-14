@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Grabbable : MonoBehaviour {
 
+    public int id;
+    public int ammo;
+
 	// Use this for initialization
 	void Start () {
 		
