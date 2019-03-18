@@ -47,7 +47,6 @@ public class Gun : Weapon {
             audioSource.Play();
             fireTimer = 0;
             ammo--;
-            text.text = ammo.ToString();
 
             RaycastHit hit2;
             if (Physics.Raycast(fireTransform.position, fireTransform.forward, out hit2))
@@ -62,5 +61,6 @@ public class Gun : Weapon {
                 }
             }
         }
+        text.text = ammo.ToString();
     }
 }
