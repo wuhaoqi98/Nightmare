@@ -43,7 +43,7 @@ public class Zombie : MonoBehaviour {
            
         
         float dist = (transform.position - player.transform.position).magnitude;
-        if(dist <= activeRange)
+        if (dist <= activeRange || GameManager.endGame)
         {
             nav.isStopped = false;
             nav.SetDestination(player.transform.position);

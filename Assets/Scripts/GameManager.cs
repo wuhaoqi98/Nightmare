@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public static int mode;
     public static bool gameOver;
+    public static bool endGame;
 
     GameObject line;
     GameObject toggleOn;
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
         offText.enabled = false;
         gameMessage.enabled = false;
         music = GetComponent<AudioSource>();
+        gameOver = false;
+        endGame = false;
     }
 
     // Update is called once per frame
@@ -68,6 +71,7 @@ public class GameManager : MonoBehaviour
                     }
                     if(hit.collider.gameObject.name == "Reset")
                     {
+                        
                         SceneManager.LoadScene(0);
                     }
                     if(hit.collider.gameObject.name == "Toggle")
@@ -105,6 +109,16 @@ public class GameManager : MonoBehaviour
         {
             mode = 1;
             setMessage("You Died!", 100);
+        }
+
+        int numOfZombies = GameObject.FindGameObjectsWithTag("Zombie").Length;
+        if (numOfZombies == 0)
+        {
+            setMessage("Area Cleared!", 10);
+        }
+        else if(numOfZombies <= 5)
+        {
+            endGame = true;
         }
 
         timer += Time.deltaTime;
