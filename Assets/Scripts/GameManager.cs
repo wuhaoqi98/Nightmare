@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     GameObject line;
     GameObject toggleOn;
     GameObject toggleOff;
+    AudioSource music;
     private bool openMenu;
     private bool musicOn = true;
     private float timer = 0;
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        mode = 0;
+        mode = 1;
         line = rHand.Find("Line").gameObject;
         openMenu = true;
         toggleOn = GameObject.Find("ToggleOn");
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
         toggleOff.SetActive(false);
         offText.enabled = false;
         gameMessage.enabled = false;
+        music = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -57,7 +59,8 @@ public class GameManager : MonoBehaviour
                     if (hit.collider.gameObject.name == "Play")
                     {
                         mode = 0;
-                        setMessage("Clear The Area", 1);
+                        setMessage("Clear The Area", 2);
+                        openMenu = false;
                     }
                     if (hit.collider.gameObject.name == "Pause")
                     {
@@ -76,6 +79,7 @@ public class GameManager : MonoBehaviour
                             onText.enabled = false;
                             toggleOff.SetActive(true);
                             toggleOn.SetActive(false);
+                            music.volume = 0;
                         }
                         else
                         {
@@ -84,6 +88,7 @@ public class GameManager : MonoBehaviour
                             onText.enabled = true;
                             toggleOff.SetActive(false);
                             toggleOn.SetActive(true);
+                            music.volume = 0.5f;
                         }
                     }
                 }
@@ -99,7 +104,7 @@ public class GameManager : MonoBehaviour
         if (gameOver)
         {
             mode = 1;
-            setMessage("You Died, Mission Failed!", 100);
+            setMessage("You Died!", 100);
         }
 
         timer += Time.deltaTime;
