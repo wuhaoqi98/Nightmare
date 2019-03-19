@@ -23,14 +23,25 @@ public class Katana : Weapon {
         newPos = transform.position;
         velocity = newPos - lastPos;
         lastPos = newPos;
-        if(velocity.magnitude*damage >= 100)
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Zombie")
         {
+            other.GetComponent<Zombie>().receiveDamage(getHitDamage());
             audioSource.Play();
         }
     }
+   
 
     public int getHitDamage()
     {
-        return (int)(velocity.magnitude * damage);
+        int hitDamage = (int)(velocity.magnitude * damage);
+        if (hitDamage > 200)
+            hitDamage = 200;
+        Debug.Log(hitDamage);
+        return hitDamage;
     }
 }

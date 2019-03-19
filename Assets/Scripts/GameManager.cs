@@ -8,27 +8,33 @@ public class GameManager : MonoBehaviour
 {
     public Transform rHand;
     public GameObject menu;
+    public Text gameMessage;
+    
     public Text onText;
     public Text offText;
 
     public static int mode;
+    public static bool gameOver;
 
     GameObject line;
     GameObject toggleOn;
     GameObject toggleOff;
     private bool openMenu;
     private bool musicOn = true;
+    private float timer = 0;
+    private float messageTime = 1;
 
     // Use this for initialization
     void Start()
     {
-        mode = 1;
+        mode = 0;
         line = rHand.Find("Line").gameObject;
         openMenu = true;
         toggleOn = GameObject.Find("ToggleOn");
         toggleOff = GameObject.Find("ToggleOff");
         toggleOff.SetActive(false);
         offText.enabled = false;
+        gameMessage.enabled = false;
     }
 
     // Update is called once per frame
@@ -51,7 +57,7 @@ public class GameManager : MonoBehaviour
                     if (hit.collider.gameObject.name == "Play")
                     {
                         mode = 0;
-                        
+                        setMessage("Clear The Area", 1);
                     }
                     if (hit.collider.gameObject.name == "Pause")
                     {
@@ -89,6 +95,26 @@ public class GameManager : MonoBehaviour
             menu.SetActive(false);
             line.SetActive(false);
         }
+
+        if (gameOver)
+        {
+            mode = 1;
+            setMessage("You Died, Mission Failed!", 100);
+        }
+
+        timer += Time.deltaTime;
+        if(timer >= messageTime)
+        {
+            gameMessage.enabled = false;
+        }
+    }
+
+    private void setMessage(string message, float time)
+    {
+        gameMessage.text = message;
+        gameMessage.enabled = true;
+        timer = 0;
+        messageTime = time;
     }
 
 }

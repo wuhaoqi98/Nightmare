@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
     CharacterController controller;
     GameObject indicator;
     GameObject weaponObj;
+    AudioSource audioSouce;
     private Vector3 handPos;
     private int weaponId = 5;
     private float timer = 0;
@@ -29,11 +30,16 @@ public class Player : MonoBehaviour {
         controller = GetComponent<CharacterController>();
         GameObject.Find("OVRCameraRig").transform.localPosition += new Vector3(0, 0, -1);
         indicator = GameObject.Find("Indicator");
+        audioSouce = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.gameOver)
+        {
+            return;
+        }
         if (OVRInput.Get(OVRInput.RawButton.LHandTrigger))
         {
             //transform.position += lHand.transform.forward * speed;
@@ -97,6 +103,11 @@ public class Player : MonoBehaviour {
         health -= damage;
         healthBar.value = health;
         timer = 0;
+        audioSouce.Play();
+        if(health <= 0)
+        {
+            GameManager.gameOver = true;
+        }
     }
 
     private void switchWeapon(Grabbable weapon)

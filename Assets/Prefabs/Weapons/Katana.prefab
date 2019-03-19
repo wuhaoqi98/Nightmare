@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 64929219101821100}
   - component: {fileID: 114012754392551570}
   - component: {fileID: 82846756394052694}
+  - component: {fileID: 65010056907232760}
   m_Layer: 0
   m_Name: Katana
   m_TagString: Weapon
@@ -110,12 +111,24 @@ MeshCollider:
   m_GameObject: {fileID: 1828677403640016}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 6892f4cd05afb66438fece35a6496281, type: 3}
+--- !u!65 &65010056907232760
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1828677403640016}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 10, z: 122.3}
+  m_Center: {x: -4.5, y: -1.188317, z: -35.9}
 --- !u!82 &82846756394052694
 AudioSource:
   m_ObjectHideFlags: 1
@@ -125,9 +138,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8fe8031e96c1fa144abedc1928c85815, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_audioClip: {fileID: 8300000, guid: 3ba7dcb811fd15e419fa1ded53011123, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

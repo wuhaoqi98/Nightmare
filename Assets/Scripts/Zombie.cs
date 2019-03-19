@@ -61,6 +61,7 @@ public class Zombie : MonoBehaviour {
         
 	}
 
+    /*
     private void OnTriggerEnter(Collider other)
     {
         if(other.GetComponent<Katana>())
@@ -71,7 +72,7 @@ public class Zombie : MonoBehaviour {
             Debug.Log( damage);
         }
         
-    }
+    }*/
 
     private void onDeath()
     {
