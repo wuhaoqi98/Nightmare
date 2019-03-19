@@ -14,6 +14,8 @@ public class Boss : Zombie {
 	// Update is called once per frame
 	protected override void Update () {
         base.Update();
+        if (GameManager.mode == 1)
+            return;
         timer += Time.deltaTime;
         if(timer >= timeBetweenSpawn && GameObject.FindGameObjectsWithTag("Zombie").Length <= 100)
         {

@@ -48,8 +48,8 @@ public class Player : MonoBehaviour {
             indicator.SetActive(true);
             indicator.transform.position = handPos;
             // grab weapon
-            //if (OVRInput.GetDown(OVRInput.RawButton.RHandTrigger))
-            //{
+            if (OVRInput.GetDown(OVRInput.RawButton.RHandTrigger))
+            {
                 Collider[] colliders = Physics.OverlapSphere(handPos, 0.5f);
                 foreach (Collider c in colliders)
                 {
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour {
                     break;
                     }
                 }
-            //}
+            }
             
         }
         else // using weapons
